@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tests</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        h1 {
+            color: #6366f1;
+        }
+
+        .test-suite {
+            margin: 1.5rem 0;
+        }
+
+        .test-suite h2 {
+            font-size: 1.2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .test {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem 0;
+            border-radius: 4px;
+        }
+
+        .test.pass {
+            background: #1a3a2a;
+            color: #4ade80;
+        }
+
+        .test.fail {
+            background: #3a1a1a;
+            color: #f87171;
+        }
+
+        .summary {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        .summary.all-pass {
+            background: #1a3a2a;
+            color: #4ade80;
+        }
+
+        .summary.has-fail {
+            background: #3a1a1a;
+            color: #f87171;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Portfolio Test Suite</h1>
+    <div id="results"></div>
+
+    <!-- Load utilities for testing - note the correct path -->
+    <script src="../js/utils.js"></script>
+
+    <script>
+        /**
+         * Simple Test Runner
+         */
+        const tests = [];
+        let passed = 0;
+        let failed = 0;
+
+        function test(name, fn) {
+            tests.push({ name, fn });
+        }
+
+        function assertEqual(actual, expected, message = '') {
+            if (actual !== expected) {
+                throw new Error(`${message} Expected: ${expected}, Got: ${actual}`);
+            }
+        }
+
+        function assertTrue(condition, message = '') {
+            if (!condition) {
+                throw new Error(message || 'Expected condition to be true');
+            }
+        }
+
+        function assertFalse(condition, message = '') {
+            if (condition) {
+                throw new Error(message || 'Expected condition to be false');
+            }
+        }
+
+        function assertDefined(value, message = '') {
+            if (value === undefined || value === null) {
+                throw new Error(message || 'Expected value to be defined');
+            }
+        }
+
+        async function runTests() {
+            const results = document.getElementById('results');
+
+            for (const { name, fn } of tests) {
+                try {
+                    await fn();
+                    passed++;
+                    results.innerHTML += `<div class="test pass">✓ ${name}</div>`;
+                } catch (error) {
+                    failed++;
+                    results.innerHTML += `<div class="test fail">✗ ${name}: ${error.message}</div>`;
+                }
+            }
+
+            const summaryClass = failed === 0 ? 'all-pass' : 'has-fail';
+            results.innerHTML += `
+                <div class="summary ${summaryClass}">
+                    Tests: ${passed + failed} | Passed: ${passed} | Failed: ${failed}
+                </div>
+            `;
+        }
+
+        // ============================================
+        // Utils Tests
+        // ============================================
+
+        test('PortfolioUtils is defined', () => {
+            assertDefined(window.PortfolioUtils, 'PortfolioUtils should be defined');
+        });
+
+        test('escapeHtml escapes HTML tags', () => {
+            // Use string concatenation to avoid breaking the script tag
+            const malicious = '<scr' + 'ipt>alert("xss")</' + 'script>';
+            const result = window.PortfolioUtils.escapeHtml(malicious);
+            assertFalse(result.includes('<scr' + 'ipt>'), 'Should escape script tags');
+            assertTrue(result.includes('&lt;'), 'Should contain escaped characters');
+        });
+
+        test('escapeHtml handles empty string', () => {
+            const result = window.PortfolioUtils.escapeHtml('');
+            assertEqual(result, '', 'Empty string should return empty string');
+        });
+
+        test('escapeHtml handles non-string input', () => {
+            const result = window.PortfolioUtils.escapeHtml(null);
+            assertEqual(result, '', 'Null should return empty string');
+        });
+
+        test('escapeHtml preserves safe text', () => {
+            const result = window.PortfolioUtils.escapeHtml('Hello World');
+            assertEqual(result, 'Hello World', 'Safe text should be unchanged');
+        });
+
+        test('escapeHtml escapes angle brackets', () => {
+            const result = window.PortfolioUtils.escapeHtml('<div>test</div>');
+            assertTrue(result.includes('&lt;'), 'Should escape less-than');
+            assertTrue(result.includes('&gt;'), 'Should escape greater-than');
+        });
+
+        test('validateConfig returns false for null', () => {
+            const result = window.PortfolioUtils.validateConfig(null);
+            assertEqual(result, false, 'Null config should be invalid');
+        });
+
+        test('validateConfig returns false for missing fields', () => {
+            const result = window.PortfolioUtils.validateConfig({ personal: {} });
+            assertEqual(result, false, 'Config missing required fields should be invalid');
+        });
+
+        test('validateConfig returns true for valid config', () => {
+            const validConfig = {
+                personal: {
+                    name: 'Test',
+                    title: 'Engineer',
+                    email: 'test@example.com',
+                    github: 'testuser',
+                    linkedin: 'testuser'
+                },
+                about: { intro: 'Test', focus: 'Test' },
+                skills: [],
+                experience: []
+            };
+            const result = window.PortfolioUtils.validateConfig(validConfig);
+            assertEqual(result, true, 'Valid config should pass validation');
+        });
+
+        test('onReady is a function', () => {
+            assertEqual(typeof window.PortfolioUtils.onReady, 'function', 'onReady should be a function');
+        });
+
+        test('log is a function', () => {
+            assertEqual(typeof window.PortfolioUtils.log, 'function', 'log should be a function');
+        });
+
+        // ============================================
+        // Config Tests
+        // ============================================
+
+        test('Config fetch returns object', async () => {
+            const response = await fetch('../config.json');
+            assertTrue(response.ok, 'Config should be fetchable');
+            const config = await response.json();
+            assertDefined(config.personal, 'Config should have personal section');
+        });
+
+        test('Config has required personal fields', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            assertDefined(config.personal.name, 'Config should have name');
+            assertDefined(config.personal.github, 'Config should have github');
+            assertDefined(config.personal.email, 'Config should have email');
+        });
+
+        test('Config validates with validateConfig', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            const result = window.PortfolioUtils.validateConfig(config);
+            assertTrue(result, 'Actual config should pass validation');
+        });
+
+        // Run all tests
+        runTests();
+    </script>
+</body>
+
+</html>

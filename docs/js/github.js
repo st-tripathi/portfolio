@@ -1,20 +1,34 @@
 /**
  * GitHub API Module
  * Fetches and displays public repositories
+ * Reads username from config.json
  */
 (function () {
     'use strict';
 
-    const GITHUB_USERNAME = 'st-tripathi';
-    const API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
+    const { log, escapeHtml, onReady } = window.PortfolioUtils || {};
     const MAX_REPOS = 6;
+
+    /**
+     * Get GitHub username from config
+     */
+    function getGitHubUsername() {
+        const config = window.__portfolioConfig;
+        return config?.personal?.github || null;
+    }
 
     /**
      * Fetch repositories from GitHub API
      */
-    async function fetchRepos() {
+    async function fetchRepos(username) {
+        if (!username) {
+            if (log) log('No GitHub username configured');
+            return null;
+        }
+
         try {
-            const response = await fetch(`${API_URL}?sort=updated&per_page=${MAX_REPOS}`);
+            const apiUrl = `https://api.github.com/users/${encodeURIComponent(username)}/repos`;
+            const response = await fetch(`${apiUrl}?sort=updated&per_page=${MAX_REPOS}`);
 
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);
@@ -60,7 +74,7 @@
     }
 
     /**
-     * Create repository card HTML
+     * Create repository card using DOM APIs (XSS-safe)
      */
     function createRepoCard(repo) {
         const card = document.createElement('a');
@@ -69,23 +83,41 @@
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
 
-        card.innerHTML = `
-            <h4>
-                <span>📁</span>
-                ${repo.name}
-            </h4>
-            <p>${repo.description || 'No description available'}</p>
-            <div class="github-card-meta">
-                ${repo.language ? `
-                    <span>
-                        <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${getLanguageColor(repo.language)}"></span>
-                        ${repo.language}
-                    </span>
-                ` : ''}
-                <span>⭐ ${formatStars(repo.stargazers_count)}</span>
-                <span>🍴 ${repo.forks_count}</span>
-            </div>
-        `;
+        // Header
+        const h4 = document.createElement('h4');
+        const icon = document.createElement('span');
+        icon.textContent = '📁';
+        h4.appendChild(icon);
+        h4.appendChild(document.createTextNode(' ' + repo.name));
+
+        // Description
+        const desc = document.createElement('p');
+        desc.textContent = repo.description || 'No description available';
+
+        // Meta
+        const meta = document.createElement('div');
+        meta.className = 'github-card-meta';
+
+        if (repo.language) {
+            const langSpan = document.createElement('span');
+            const langDot = document.createElement('span');
+            langDot.style.cssText = `display:inline-block;width:12px;height:12px;border-radius:50%;background:${getLanguageColor(repo.language)}`;
+            langSpan.appendChild(langDot);
+            langSpan.appendChild(document.createTextNode(' ' + repo.language));
+            meta.appendChild(langSpan);
+        }
+
+        const starsSpan = document.createElement('span');
+        starsSpan.textContent = `⭐ ${formatStars(repo.stargazers_count)}`;
+        meta.appendChild(starsSpan);
+
+        const forksSpan = document.createElement('span');
+        forksSpan.textContent = `🍴 ${repo.forks_count}`;
+        meta.appendChild(forksSpan);
+
+        card.appendChild(h4);
+        card.appendChild(desc);
+        card.appendChild(meta);
 
         return card;
     }
@@ -96,7 +128,9 @@
     function createEmptyState(message) {
         const container = document.createElement('div');
         container.className = 'blog-coming-soon';
-        container.innerHTML = `<p>${message}</p>`;
+        const p = document.createElement('p');
+        p.textContent = message;
+        container.appendChild(p);
         return container;
     }
 
@@ -107,7 +141,14 @@
         const container = document.getElementById('github-repos');
         if (!container) return;
 
-        const repos = await fetchRepos();
+        const username = getGitHubUsername();
+        if (!username) {
+            container.innerHTML = '';
+            container.appendChild(createEmptyState('GitHub username not configured.'));
+            return;
+        }
+
+        const repos = await fetchRepos(username);
 
         // Clear loading skeleton
         container.innerHTML = '';
@@ -144,7 +185,8 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    render();
+                    // Small delay to ensure config is loaded
+                    setTimeout(render, 100);
                     observer.unobserve(entry.target);
                 }
             });
@@ -154,7 +196,9 @@
     }
 
     // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
+    if (window.PortfolioUtils?.onReady) {
+        window.PortfolioUtils.onReady(init);
+    } else if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
