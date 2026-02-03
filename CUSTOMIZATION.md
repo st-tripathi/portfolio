@@ -241,12 +241,6 @@ Add your preferred Google Font in `docs/index.html` `<head>`.
 
 Your site will be live at `https://YOUR_USERNAME.github.io/portfolio/`
 
-### Netlify (Free, supports private repos)
-1. Go to [netlify.com](https://netlify.com)
-2. Connect your GitHub repo
-3. Set publish directory to `docs`
-4. Deploy
-
 ---
 
 ## ❓ FAQ
