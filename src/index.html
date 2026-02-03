@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Shivam Tripathi - Staff Platform Engineer specializing in Kubernetes, IAM, and Distributed Systems">
+    <meta name="keywords" content="Platform Engineer, Kubernetes, IAM, Distributed Systems, DevOps, Cloud Native">
+    <meta name="author" content="Shivam Tripathi">
+
+    <title>Shivam Tripathi | Platform Engineer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">ST</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-title">Shivam Tripathi</h1>
+                <p class="hero-tagline">Staff Software Engineer</p>
+                <p class="hero-subtitle">Kubernetes • IAM • Distributed Systems</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="assets/resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-graphic"></div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Staff-level Platform and Backend Engineer with <strong>11.5+ years</strong> of experience
+                        across distributed systems, cloud-native platforms, and security-critical infrastructure.
+                    </p>
+                    <p>
+                        Currently part of a central Platform / Blueprint team enabling multiple product teams
+                        through Kubernetes-based, inner-source platform components. Strong background in identity
+                        and access management, backend engineering, and production reliability.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item"
+                            data-tooltip="Building internal platforms that enable developers to self-serve infrastructure and accelerate delivery."
+                            data-tools="Kubernetes, Docker, Helm, GitOps">
+                            <span class="skill-icon">⚙️</span>
+                            <span>Platform Engineering</span>
+                        </div>
+                        <div class="skill-item"
+                            data-tooltip="Container orchestration for deploying, scaling, and managing containerized applications at enterprise scale."
+                            data-tools="Kubernetes, Docker, Helm">
+                            <span class="skill-icon">☸️</span>
+                            <span>Container Orchestration</span>
+                        </div>
+                        <div class="skill-item"
+                            data-tooltip="Identity and Access Management - ensuring the right users have the right access to the right resources at the right time."
+                            data-tools="Keycloak, OAuth2/OIDC, HashiCorp Vault">
+                            <span class="skill-icon">🔐</span>
+                            <span>Identity & Access Management</span>
+                        </div>
+                        <div class="skill-item"
+                            data-tooltip="Designing systems that operate across multiple machines, handling failures gracefully and scaling horizontally."
+                            data-tools="Event-Driven Architecture, DDD, Microservices">
+                            <span class="skill-icon">🌐</span>
+                            <span>Distributed Systems</span>
+                        </div>
+                        <div class="skill-item"
+                            data-tooltip="Building and deploying applications on cloud platforms with managed services for compute, storage, and messaging."
+                            data-tools="AWS, Azure (Functions, Service Bus)">
+                            <span class="skill-icon">☁️</span>
+                            <span>Cloud Platforms</span>
+                        </div>
+                        <div class="skill-item"
+                            data-tooltip="API Gateway for traffic management, rate limiting, and security at the edge of your services."
+                            data-tools="Kong Gateway">
+                            <span class="skill-icon">🔧</span>
+                            <span>API Gateway</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section section-alt" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Thales</h3>
+                            <span class="timeline-role">Senior Technical Lead / Platform Engineer</span>
+                            <span class="timeline-date">May 2024 – Present</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Architect inner-source platform serving 8+ product teams, reducing infrastructure
+                                onboarding from weeks to hours</li>
+                            <li>Design security-hardened container base images adopted across business lines</li>
+                            <li>Own Helm chart ecosystem for Keycloak, Kong Gateway, and HashiCorp Vault</li>
+                            <li>Lead platform standardization establishing deployment blueprints</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>VAKT Global Ltd</h3>
+                            <span class="timeline-role">Senior Software Engineer</span>
+                            <span class="timeline-date">Jul 2022 – Apr 2024</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Redesigned trade contract matching engine, accelerating settlement cycles from T+5 to
+                                T+2</li>
+                            <li>Architected real-time discrepancy resolution replacing email-based workflows</li>
+                            <li>Led event-driven architecture migration, deprecating legacy batch jobs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>ThoughtWorks</h3>
+                            <span class="timeline-role">Senior Consultant / Tech Lead</span>
+                            <span class="timeline-date">Nov 2017 – Jul 2022</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Architected Kubernetes migration for Big Three consultancy (5M+ monthly visitors),
+                                achieving 99.99% uptime</li>
+                            <li>Designed enterprise OAuth2/OIDC authentication using Keycloak with 99.9% availability
+                            </li>
+                            <li>Led event-driven architecture adoption using Azure Service Bus and Functions</li>
+                            <li>Mentored 10+ engineers across client engagements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Blog Section (Placeholder for Phase 2) -->
+    <section class="section section-alt" id="blog">
+        <div class="container">
+            <h2 class="section-title">Blog</h2>
+            <p class="section-subtitle">Thoughts on platform engineering, cloud-native, and more</p>
+            <div class="blog-coming-soon">
+                <p>🚀 Coming soon...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p class="contact-intro">
+                    Interested in discussing platform engineering, cloud-native architecture,
+                    or potential collaborations? I'd love to hear from you.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:shivamtripathi444@gmail.com" class="contact-link">
+                        <span class="contact-icon">📧</span>
+                        <span>shivamtripathi444@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/stshivam" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/st-tripathi" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-icon">🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Shivam Tripathi. Built with ❤️ and vanilla web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/skills.js"></script>
+</body>
+
+</html>
