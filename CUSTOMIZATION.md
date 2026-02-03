@@ -14,7 +14,10 @@ cd portfolio
 All personal information lives in **one file**: `docs/config.json`
 
 ```bash
-# Open in your editor
+# Start by copying the template
+cp examples/config.template.json docs/config.json
+
+# Edit with your info
 code docs/config.json
 ```
 
@@ -41,7 +44,8 @@ portfolio/
 │   ├── css/             # Stylesheets
 │   └── js/              # JavaScript modules
 ├── examples/            # Reference examples
-│   └── config.shivam.json  # Real-world config example
+│   ├── config.template.json  # Blank template to copy
+│   └── config.shivam.json    # Real-world example
 ├── templates/           # Resume HTML template (for PDF generation)
 ├── Dockerfile.dev       # Development server
 └── docker-compose.yml   # Docker orchestration
