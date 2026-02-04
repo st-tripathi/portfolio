@@ -8,17 +8,23 @@
         "name": "Shivam Tripathi",
         "title": "Staff Software Engineer",
         "tagline": "Kubernetes • IAM • Distributed Systems",
-        "location": "India",
+        "location": "Noida, India",
         "email": "shivamtripathi444@gmail.com",
         "github": "st-tripathi",
         "linkedin": "stshivam",
         "website": ""
     },
     "about": {
-        "intro": "Staff-level Platform and Backend Engineer with <strong>11.5+ years</strong> of experience across distributed systems, cloud-native platforms, and security-critical infrastructure.",
-        "focus": "Currently part of a central Platform / Blueprint team enabling multiple product teams through Kubernetes-based, inner-source platform components. Strong background in identity and access management, backend engineering, and production reliability."
+        "intro": "Software architect with <strong>11+ years</strong> building distributed systems, identity infrastructure, and cloud-native platforms. Currently delivering Kubernetes-based developer platforms at enterprise scale.",
+        "focus": "Part of a central Platform / Blueprint team enabling 8+ product teams through inner-source platform components. Strong background in identity and access management, backend engineering, and production reliability."
     },
     "skills": [
+        {
+            "icon": "🤖",
+            "name": "AI & GenAI",
+            "description": "Leveraging AI-assisted development and agentic workflows for accelerated planning and coding.",
+            "tools": "Cline, Antigravity, GitHub Copilot, Claude, Gemini, ChatGPT"
+        },
         {
             "icon": "⚙️",
             "name": "Platform Engineering",
@@ -26,34 +32,40 @@
             "tools": "Kubernetes, Docker, Helm, GitOps"
         },
         {
-            "icon": "☸️",
-            "name": "Container Orchestration",
-            "description": "Container orchestration for deploying, scaling, and managing containerized applications at enterprise scale.",
-            "tools": "Kubernetes, Docker, Helm"
-        },
-        {
             "icon": "🔐",
-            "name": "Identity & Access Management",
-            "description": "Identity and Access Management - ensuring the right users have the right access to the right resources at the right time.",
-            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault"
+            "name": "Identity & Security",
+            "description": "Ensuring the right users have the right access to the right resources at the right time.",
+            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault, Kong"
         },
         {
-            "icon": "🌐",
-            "name": "Distributed Systems",
-            "description": "Designing systems that operate across multiple machines, handling failures gracefully and scaling horizontally.",
-            "tools": "Event-Driven Architecture, DDD, Microservices"
+            "icon": "💻",
+            "name": "Languages & Frameworks",
+            "description": "Backend development with enterprise-grade frameworks and languages.",
+            "tools": "Java, Spring Boot, C#/.NET Core"
         },
         {
             "icon": "☁️",
             "name": "Cloud Platforms",
-            "description": "Building and deploying applications on cloud platforms with managed services for compute, storage, and messaging.",
+            "description": "Building and deploying applications on cloud platforms with managed services.",
             "tools": "AWS, Azure (Functions, Service Bus)"
         },
         {
-            "icon": "🔧",
-            "name": "API Gateway",
-            "description": "API Gateway for traffic management, rate limiting, and security at the edge of your services.",
-            "tools": "Kong Gateway"
+            "icon": "🏗️",
+            "name": "Architecture Patterns",
+            "description": "Designing scalable, maintainable systems using modern architectural patterns.",
+            "tools": "Microservices, Event-Driven, DDD"
+        },
+        {
+            "icon": "🔄",
+            "name": "DevOps & CI/CD",
+            "description": "Continuous integration and delivery pipelines for automated, reliable deployments.",
+            "tools": "Jenkins, GitLab CI/CD, Maven, Git"
+        },
+        {
+            "icon": "🗄️",
+            "name": "Databases",
+            "description": "Relational database design, optimization, and management.",
+            "tools": "PostgreSQL, MySQL"
         }
     ],
     "experience": [
@@ -63,39 +75,62 @@
             "period": "May 2024 – Present",
             "description": "Global leader in aerospace, defence, digital identity and security",
             "highlights": [
-                "Architect inner-source platform serving 8+ product teams, reducing infrastructure onboarding from weeks to hours",
+                "Architect inner-source platform serving 8+ product teams, reducing onboarding from weeks to hours",
+                "Leverage GenAI tools (Cline, Claude, Gemini) for accelerated development and planning workflows",
                 "Design security-hardened container base images adopted across business lines",
-                "Own Helm chart ecosystem for Keycloak, Kong Gateway, and HashiCorp Vault",
-                "Lead platform standardization establishing deployment blueprints"
+                "Own Helm chart ecosystem for Keycloak, Kong Gateway, and HashiCorp Vault"
             ]
         },
         {
             "company": "VAKT Global Ltd",
             "role": "Senior Software Engineer",
             "period": "Jul 2022 – Apr 2024",
-            "description": "Blockchain-based commodity trading platform",
+            "description": "Blockchain leader in post-trade processing for global commodities trading",
             "highlights": [
-                "Redesigned trade contract matching engine, accelerating settlement cycles from T+5 to T+2",
+                "Redesigned trade contract matching engine, accelerating settlements from T+5 to T+2",
                 "Architected real-time discrepancy resolution replacing email-based workflows",
-                "Led event-driven architecture migration, deprecating legacy batch jobs"
+                "Led event-driven architecture migration using message queues, deprecating legacy batch jobs"
             ]
         },
         {
             "company": "ThoughtWorks",
             "role": "Senior Consultant / Tech Lead",
             "period": "Nov 2017 – Jul 2022",
-            "description": "Global software consultancy and one of the Big Three",
+            "description": "Global software consultancy",
             "highlights": [
-                "Architected Kubernetes migration for Big Three consultancy (5M+ monthly visitors), achieving 99.99% uptime",
-                "Designed enterprise OAuth2/OIDC authentication using Keycloak with 99.9% availability",
-                "Led event-driven architecture adoption using Azure Service Bus and Functions",
+                "Architected Kubernetes migration for Big Three consultancy (5M+ visitors), achieving 99.99% uptime",
+                "Designed enterprise OAuth2/OIDC authentication using Keycloak as Identity Provider",
+                "Led event-driven architecture adoption with Azure Service Bus and Functions",
+                "Extracted microservices from monolith, reducing release cycles from monthly to weekly",
                 "Mentored 10+ engineers across client engagements"
+            ]
+        },
+        {
+            "company": "Ameyo",
+            "role": "Application Engineer",
+            "period": "Mar 2016 – Oct 2017",
+            "description": "Leading contact center technology and customer experience platform",
+            "highlights": [
+                "Developed backend APIs and features for omnichannel contact center SaaS platform"
+            ]
+        },
+        {
+            "company": "Newgen Software Technologies",
+            "role": "Software Engineer",
+            "period": "Jan 2014 – Feb 2016",
+            "description": "Global provider of low-code digital automation platform",
+            "highlights": [
+                "Built backend components for enterprise process automation and document management"
             ]
         }
     ],
+    "education": {
+        "degree": "B.Tech - Information Technology",
+        "period": "2010 - 2014"
+    },
     "social": {
         "github": {
-            "enabled": false,
+            "enabled": true,
             "showRepos": true,
             "maxRepos": 6
         }
