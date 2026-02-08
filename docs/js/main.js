@@ -72,8 +72,10 @@
         addRevealStyles();
         initScrollReveal();
 
-        // Log initialization (development only)
-        console.log('Portfolio initialized');
+        // Log initialization (debug mode only)
+        if (window.PortfolioUtils?.log) {
+            window.PortfolioUtils.log('Portfolio initialized');
+        }
     }
 
     // Initialize when DOM is ready

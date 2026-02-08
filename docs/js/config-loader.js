@@ -7,6 +7,7 @@
     'use strict';
 
     const CONFIG_PATH = './config.json';
+    const { log, escapeHtml, onReady, validateConfig } = window.PortfolioUtils || {};
 
     /**
      * Fetch and parse config.json
@@ -17,7 +18,12 @@
             if (!response.ok) {
                 throw new Error(`Failed to load config: ${response.status}`);
             }
-            return await response.json();
+            const config = await response.json();
+
+            // Store config globally for other modules (e.g., github.js)
+            window.__portfolioConfig = config;
+
+            return config;
         } catch (error) {
             console.error('Config load error:', error);
             return null;
@@ -30,16 +36,18 @@
     function renderPersonal(config) {
         const { personal } = config;
 
-        // Hero section
-        document.querySelector('.hero-title')?.textContent &&
-            (document.querySelector('.hero-title').textContent = personal.name);
-        document.querySelector('.hero-tagline')?.textContent &&
-            (document.querySelector('.hero-tagline').textContent = personal.title);
-        document.querySelector('.hero-subtitle')?.textContent &&
-            (document.querySelector('.hero-subtitle').textContent = personal.tagline);
+        // Hero section - use textContent for safety
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) heroTitle.textContent = personal.name;
+
+        const heroTagline = document.querySelector('.hero-tagline');
+        if (heroTagline) heroTagline.textContent = personal.title;
+
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        if (heroSubtitle) heroSubtitle.textContent = personal.tagline;
 
         // Page title
-        document.title = `${personal.name} | ${personal.title}`;
+        document.title = `${escapeHtml(personal.name)} | ${escapeHtml(personal.title)}`;
 
         // Meta description
         const metaDesc = document.querySelector('meta[name="description"]');
@@ -47,23 +55,26 @@
             metaDesc.content = `${personal.name} - ${personal.title} specializing in ${personal.tagline}`;
         }
 
-        // Contact links
+        // Contact links - use textContent for display text
         const emailLink = document.querySelector('.contact-link[href^="mailto"]');
         if (emailLink) {
-            emailLink.href = `mailto:${personal.email}`;
-            emailLink.querySelector('span:last-child').textContent = personal.email;
+            emailLink.href = `mailto:${encodeURIComponent(personal.email)}`;
+            const emailText = emailLink.querySelector('span:last-child');
+            if (emailText) emailText.textContent = personal.email;
         }
 
         const linkedinLink = document.querySelector('.contact-link[href*="linkedin"]');
         if (linkedinLink) {
-            linkedinLink.href = `https://linkedin.com/in/${personal.linkedin}`;
-            linkedinLink.querySelector('span:last-child').textContent = `linkedin.com/in/${personal.linkedin}`;
+            linkedinLink.href = `https://linkedin.com/in/${encodeURIComponent(personal.linkedin)}`;
+            const linkedinText = linkedinLink.querySelector('span:last-child');
+            if (linkedinText) linkedinText.textContent = `linkedin.com/in/${personal.linkedin}`;
         }
 
         const githubLink = document.querySelector('.contact-link[href*="github"]');
         if (githubLink) {
-            githubLink.href = `https://github.com/${personal.github}`;
-            githubLink.querySelector('span:last-child').textContent = `github.com/${personal.github}`;
+            githubLink.href = `https://github.com/${encodeURIComponent(personal.github)}`;
+            const githubText = githubLink.querySelector('span:last-child');
+            if (githubText) githubText.textContent = `github.com/${personal.github}`;
         }
     }
 
@@ -74,10 +85,18 @@
         const { about } = config;
         const bioEl = document.querySelector('.about-bio');
         if (bioEl && about) {
-            bioEl.innerHTML = `
-                <p class="about-intro">${about.intro}</p>
-                <p>${about.focus}</p>
-            `;
+            // Create elements safely instead of using innerHTML
+            bioEl.innerHTML = '';
+
+            const introP = document.createElement('p');
+            introP.className = 'about-intro';
+            introP.innerHTML = about.intro; // Allow HTML for <strong> tags in intro
+
+            const focusP = document.createElement('p');
+            focusP.textContent = about.focus; // Plain text for focus
+
+            bioEl.appendChild(introP);
+            bioEl.appendChild(focusP);
         }
     }
 
@@ -89,14 +108,26 @@
         const grid = document.querySelector('.skills-grid');
         if (!grid || !skills) return;
 
-        grid.innerHTML = skills.map(skill => `
-            <div class="skill-item" 
-                 data-tooltip="${skill.description}" 
-                 data-tools="${skill.tools}">
-                <span class="skill-icon">${skill.icon}</span>
-                <span>${skill.name}</span>
-            </div>
-        `).join('');
+        // Clear and rebuild safely
+        grid.innerHTML = '';
+
+        skills.forEach(skill => {
+            const item = document.createElement('div');
+            item.className = 'skill-item';
+            item.dataset.tooltip = skill.description;
+            item.dataset.tools = skill.tools;
+
+            const icon = document.createElement('span');
+            icon.className = 'skill-icon';
+            icon.textContent = skill.icon;
+
+            const name = document.createElement('span');
+            name.textContent = skill.name;
+
+            item.appendChild(icon);
+            item.appendChild(name);
+            grid.appendChild(item);
+        });
     }
 
     /**
@@ -107,21 +138,52 @@
         const timeline = document.querySelector('.timeline');
         if (!timeline || !experience) return;
 
-        timeline.innerHTML = experience.map(exp => `
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3>${exp.company}</h3>
-                        <span class="timeline-role">${exp.role}</span>
-                        <span class="timeline-date">${exp.period}</span>
-                    </div>
-                    <ul class="timeline-details">
-                        ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-        `).join('');
+        // Clear and rebuild safely
+        timeline.innerHTML = '';
+
+        experience.forEach(exp => {
+            const item = document.createElement('div');
+            item.className = 'timeline-item';
+
+            const marker = document.createElement('div');
+            marker.className = 'timeline-marker';
+
+            const content = document.createElement('div');
+            content.className = 'timeline-content';
+
+            const header = document.createElement('div');
+            header.className = 'timeline-header';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = exp.company;
+
+            const role = document.createElement('span');
+            role.className = 'timeline-role';
+            role.textContent = exp.role;
+
+            const date = document.createElement('span');
+            date.className = 'timeline-date';
+            date.textContent = exp.period;
+
+            header.appendChild(h3);
+            header.appendChild(role);
+            header.appendChild(date);
+
+            const details = document.createElement('ul');
+            details.className = 'timeline-details';
+
+            exp.highlights.forEach(highlight => {
+                const li = document.createElement('li');
+                li.textContent = highlight;
+                details.appendChild(li);
+            });
+
+            content.appendChild(header);
+            content.appendChild(details);
+            item.appendChild(marker);
+            item.appendChild(content);
+            timeline.appendChild(item);
+        });
     }
 
     /**
@@ -167,6 +229,12 @@
             return;
         }
 
+        // Validate config schema
+        if (validateConfig && !validateConfig(config)) {
+            console.warn('Config validation failed, using static content');
+            return;
+        }
+
         renderPersonal(config);
         renderAbout(config);
         renderSkills(config);
@@ -175,11 +243,13 @@
         renderContact(config);
         renderFooter(config);
 
-        console.log('Portfolio rendered from config.json');
+        if (log) log('Portfolio rendered from config.json');
     }
 
     // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
+    if (window.PortfolioUtils?.onReady) {
+        window.PortfolioUtils.onReady(init);
+    } else if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
