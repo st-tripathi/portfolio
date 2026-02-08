@@ -15,57 +15,45 @@
         "website": ""
     },
     "about": {
-        "intro": "Software architect with <strong>11+ years</strong> building distributed systems, identity infrastructure, and cloud-native platforms. Currently delivering Kubernetes-based developer platforms at enterprise scale.",
-        "focus": "Part of a central Platform / Blueprint team enabling 8+ product teams through inner-source platform components. Strong background in identity and access management, backend engineering, and production reliability."
+        "intro": "Software architect with <strong>11+ years</strong> building distributed systems, identity infrastructure, and cloud-native platforms.",
+        "focus": "Currently delivering Kubernetes-based developer platforms at enterprise scale, enabling 8+ product teams through inner-source platform components."
     },
     "skills": [
         {
             "icon": "🤖",
             "name": "AI & GenAI",
             "description": "Leveraging AI-assisted development and agentic workflows for accelerated planning and coding.",
-            "tools": "Cline, Antigravity, GitHub Copilot, Claude, Gemini, ChatGPT"
+            "tools": "Cline, Claude, Gemini, GitHub Copilot"
         },
         {
             "icon": "⚙️",
             "name": "Platform Engineering",
-            "description": "Building internal platforms that enable developers to self-serve infrastructure and accelerate delivery.",
+            "description": "Building internal platforms that enable developers to self-serve infrastructure.",
             "tools": "Kubernetes, Docker, Helm, GitOps"
         },
         {
             "icon": "🔐",
             "name": "Identity & Security",
-            "description": "Ensuring the right users have the right access to the right resources at the right time.",
-            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault, Kong"
+            "description": "Enterprise identity infrastructure and zero-trust security patterns.",
+            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault"
         },
         {
-            "icon": "💻",
-            "name": "Languages & Frameworks",
-            "description": "Backend development with enterprise-grade frameworks and languages.",
-            "tools": "Java, Spring Boot, C#/.NET Core"
+            "icon": "🌐",
+            "name": "Distributed Systems",
+            "description": "Designing scalable systems that handle failures gracefully.",
+            "tools": "Event-Driven, Microservices, DDD"
         },
         {
             "icon": "☁️",
             "name": "Cloud Platforms",
-            "description": "Building and deploying applications on cloud platforms with managed services.",
-            "tools": "AWS, Azure (Functions, Service Bus)"
+            "description": "Building and deploying on cloud with managed services.",
+            "tools": "AWS, Azure"
         },
         {
-            "icon": "🏗️",
-            "name": "Architecture Patterns",
-            "description": "Designing scalable, maintainable systems using modern architectural patterns.",
-            "tools": "Microservices, Event-Driven, DDD"
-        },
-        {
-            "icon": "🔄",
-            "name": "DevOps & CI/CD",
-            "description": "Continuous integration and delivery pipelines for automated, reliable deployments.",
-            "tools": "Jenkins, GitLab CI/CD, Maven, Git"
-        },
-        {
-            "icon": "🗄️",
-            "name": "Databases",
-            "description": "Relational database design, optimization, and management.",
-            "tools": "PostgreSQL, MySQL"
+            "icon": "🔧",
+            "name": "API Gateway",
+            "description": "Traffic management, rate limiting, and edge security.",
+            "tools": "Kong Gateway"
         }
     ],
     "experience": [
@@ -75,21 +63,19 @@
             "period": "May 2024 – Present",
             "description": "Global leader in aerospace, defence, digital identity and security",
             "highlights": [
-                "Architect inner-source platform serving 8+ product teams, reducing onboarding from weeks to hours",
-                "Leverage GenAI tools (Cline, Claude, Gemini) for accelerated development and planning workflows",
-                "Design security-hardened container base images adopted across business lines",
-                "Own Helm chart ecosystem for Keycloak, Kong Gateway, and HashiCorp Vault"
+                "Architect inner-source platform serving 8+ product teams",
+                "Leverage GenAI tools for accelerated development workflows",
+                "Own Helm chart ecosystem for Keycloak, Kong, and Vault"
             ]
         },
         {
             "company": "VAKT Global Ltd",
             "role": "Senior Software Engineer",
             "period": "Jul 2022 – Apr 2024",
-            "description": "Blockchain leader in post-trade processing for global commodities trading",
+            "description": "Blockchain leader in post-trade processing for commodities trading",
             "highlights": [
-                "Redesigned trade contract matching engine, accelerating settlements from T+5 to T+2",
-                "Architected real-time discrepancy resolution replacing email-based workflows",
-                "Led event-driven architecture migration using message queues, deprecating legacy batch jobs"
+                "Redesigned trade matching engine, accelerating settlements from T+5 to T+2",
+                "Architected real-time discrepancy resolution system"
             ]
         },
         {
@@ -98,36 +84,12 @@
             "period": "Nov 2017 – Jul 2022",
             "description": "Global software consultancy",
             "highlights": [
-                "Architected Kubernetes migration for Big Three consultancy (5M+ visitors), achieving 99.99% uptime",
-                "Designed enterprise OAuth2/OIDC authentication using Keycloak as Identity Provider",
-                "Led event-driven architecture adoption with Azure Service Bus and Functions",
-                "Extracted microservices from monolith, reducing release cycles from monthly to weekly",
+                "Architected Kubernetes migration for Big Three consultancy (5M+ visitors)",
+                "Designed enterprise OAuth2/OIDC authentication with Keycloak",
                 "Mentored 10+ engineers across client engagements"
-            ]
-        },
-        {
-            "company": "Ameyo",
-            "role": "Application Engineer",
-            "period": "Mar 2016 – Oct 2017",
-            "description": "Leading contact center technology and customer experience platform",
-            "highlights": [
-                "Developed backend APIs and features for omnichannel contact center SaaS platform"
-            ]
-        },
-        {
-            "company": "Newgen Software Technologies",
-            "role": "Software Engineer",
-            "period": "Jan 2014 – Feb 2016",
-            "description": "Global provider of low-code digital automation platform",
-            "highlights": [
-                "Built backend components for enterprise process automation and document management"
             ]
         }
     ],
-    "education": {
-        "degree": "B.Tech - Information Technology",
-        "period": "2010 - 2014"
-    },
     "social": {
         "github": {
             "enabled": true,
@@ -140,9 +102,9 @@
         "subtitle": "Thoughts on platform engineering, cloud-native, and more"
     },
     "contact": {
-        "intro": "Interested in discussing platform engineering, cloud-native architecture, or potential collaborations? I'd love to hear from you."
+        "intro": "Interested in discussing platform engineering or cloud-native architecture? Let's connect."
     },
     "footer": {
-        "copyright": "© 2026 Shivam Tripathi. Built with ❤️ and vanilla web technologies."
+        "copyright": "© 2026 Shivam Tripathi"
     }
 }
