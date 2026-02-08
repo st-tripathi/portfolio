@@ -227,6 +227,74 @@
             assertTrue(result, 'Actual config should pass validation');
         });
 
+        // ============================================
+        // Asset Tests
+        // ============================================
+
+        test('Resume PDF is accessible', async () => {
+            const response = await fetch('../assets/resume.pdf', { method: 'HEAD' });
+            assertTrue(response.ok, 'Resume PDF should be accessible at assets/resume.pdf');
+        });
+
+        test('Resume download link exists in DOM', async () => {
+            // Load the main page in an iframe or check via fetch
+            const response = await fetch('../index.html');
+            const html = await response.text();
+            assertTrue(html.includes('assets/resume.pdf'), 'Index should reference resume.pdf');
+            assertTrue(html.includes('download'), 'Resume link should have download attribute');
+        });
+
+        // ============================================
+        // Skills Tests
+        // ============================================
+
+        test('Config has skills array', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            assertTrue(Array.isArray(config.skills), 'Skills should be an array');
+            assertTrue(config.skills.length > 0, 'Skills should not be empty');
+        });
+
+        test('Skills have required properties', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            const skill = config.skills[0];
+            assertDefined(skill.name, 'Skill should have name');
+            assertDefined(skill.icon, 'Skill should have icon');
+            assertDefined(skill.description, 'Skill should have description');
+            assertDefined(skill.tools, 'Skill should have tools');
+        });
+
+        // ============================================
+        // Experience Tests
+        // ============================================
+
+        test('Config has experience array', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            assertTrue(Array.isArray(config.experience), 'Experience should be an array');
+            assertTrue(config.experience.length >= 3, 'Should have at least 3 experiences');
+        });
+
+        test('Experience entries have required properties', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            const exp = config.experience[0];
+            assertDefined(exp.company, 'Experience should have company');
+            assertDefined(exp.role, 'Experience should have role');
+            assertDefined(exp.period, 'Experience should have period');
+            assertTrue(Array.isArray(exp.highlights), 'Experience should have highlights array');
+        });
+
+        test('ThoughtWorks description is correct', async () => {
+            const response = await fetch('../config.json');
+            const config = await response.json();
+            const tw = config.experience.find(e => e.company === 'ThoughtWorks');
+            assertDefined(tw, 'ThoughtWorks should be in experience');
+            const highlight = tw.highlights.find(h => h.includes('Big Three'));
+            assertTrue(highlight.includes('one of the'), 'Should say "one of the Big Three"');
+        });
+
         // Run all tests
         runTests();
     </script>
