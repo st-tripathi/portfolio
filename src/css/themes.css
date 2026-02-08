@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Theme System - Light & Creative (Default) + Dark Mode
+   ========================================================================== */
+
+:root {
+    /* Light Theme (Default) - Creative & Warm */
+    --bg-primary: #fefefe;
+    --bg-secondary: #f8f5f2;
+    --bg-tertiary: #f0ebe5;
+    --bg-card: #ffffff;
+
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --text-heading: #1a1a2e;
+    --text-muted: #a0a0a0;
+
+    /* Creative accent - warm coral/terracotta */
+    --accent-primary: #e17055;
+    --accent-hover: #d35400;
+    --accent-light: rgba(225, 112, 85, 0.1);
+    --accent-gradient: linear-gradient(135deg, #e17055 0%, #fab1a0 100%);
+
+    /* Secondary accent - teal for contrast */
+    --accent-secondary: #00b894;
+    --accent-secondary-light: rgba(0, 184, 148, 0.1);
+
+    /* Borders & Shadows */
+    --border-light: rgba(0, 0, 0, 0.08);
+    --border-medium: rgba(0, 0, 0, 0.12);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --shadow-accent: 0 4px 20px rgba(225, 112, 85, 0.3);
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    --space-2xl: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-Index Scale */
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal: 400;
+    --z-tooltip: 500;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-primary: #0f0f1a;
+    --bg-secondary: #1a1a2e;
+    --bg-tertiary: #252540;
+    --bg-card: #1e1e32;
+
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0b0;
+    --text-heading: #ffffff;
+    --text-muted: #6c6c7c;
+
+    --accent-primary: #ff7675;
+    --accent-hover: #fab1a0;
+    --accent-light: rgba(255, 118, 117, 0.15);
+    --accent-gradient: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%);
+
+    --accent-secondary: #55efc4;
+    --accent-secondary-light: rgba(85, 239, 196, 0.15);
+
+    --border-light: rgba(255, 255, 255, 0.06);
+    --border-medium: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-accent: 0 4px 20px rgba(255, 118, 117, 0.3);
+}
+
+/* Theme Toggle Icons */
+.icon-sun,
+.icon-moon {
+    width: 20px;
+    height: 20px;
+    transition: opacity var(--transition-fast), transform var(--transition-base);
+}
+
+[data-theme="dark"] .icon-sun {
+    opacity: 1;
+}
+
+[data-theme="dark"] .icon-moon {
+    opacity: 0;
+    position: absolute;
+}
+
+:root .icon-sun {
+    opacity: 0;
+    position: absolute;
+}
+
+:root .icon-moon {
+    opacity: 1;
+}

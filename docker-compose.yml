@@ -1,0 +1,12 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: ai-portfolio-dev
+    container_name: ai-portfolio-dev-1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src:ro
+    restart: unless-stopped
