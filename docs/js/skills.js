@@ -96,4 +96,7 @@
     } else {
         initSkillTooltips();
     }
+
+    // Also reinitialize when skills are rendered dynamically by config-loader
+    window.addEventListener('skillsRendered', initSkillTooltips);
 })();

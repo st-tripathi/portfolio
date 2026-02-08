@@ -128,6 +128,9 @@
             item.appendChild(name);
             grid.appendChild(item);
         });
+
+        // Dispatch event so skills.js can initialize tooltips
+        window.dispatchEvent(new CustomEvent('skillsRendered'));
     }
 
     /**

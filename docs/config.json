@@ -84,7 +84,7 @@
             "period": "Nov 2017 – Jul 2022",
             "description": "Global software consultancy",
             "highlights": [
-                "Architected Kubernetes migration for Big Three consultancy (5M+ visitors)",
+                "Architected Kubernetes migration for one of the Big Three consultancies (5M+ visitors)",
                 "Designed enterprise OAuth2/OIDC authentication with Keycloak",
                 "Mentored 10+ engineers across client engagements"
             ]
