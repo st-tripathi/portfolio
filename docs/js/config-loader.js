@@ -72,9 +72,12 @@
      */
     function renderAbout(config) {
         const { about } = config;
-        const introEl = document.querySelector('.about-intro');
-        if (introEl) {
-            introEl.innerHTML = `${about.intro}<br><br>${about.focus}`;
+        const bioEl = document.querySelector('.about-bio');
+        if (bioEl && about) {
+            bioEl.innerHTML = `
+                <p class="about-intro">${about.intro}</p>
+                <p>${about.focus}</p>
+            `;
         }
     }
 
