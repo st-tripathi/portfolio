@@ -97,6 +97,11 @@
             "maxRepos": 6
         }
     },
+    "projects": {
+        "enabled": true,
+        "subtitle": "Featured work and open-source contributions",
+        "items": []
+    },
     "blog": {
         "enabled": true,
         "subtitle": "Thoughts on platform engineering, cloud-native, and more"

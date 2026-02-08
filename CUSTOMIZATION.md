@@ -257,6 +257,23 @@ Yes! Edit `docs/index.html` directly for structural changes, then update `docs/j
 ### How do I remove the Blog section?
 Set `"blog": { "enabled": false }` in `config.json` (feature coming soon), or remove the section from `index.html`.
 
+### How can I add a Projects section?
+A **Projects placeholder** has been added to `index.html`. In the next phase, this will be fully dynamic. For now, it shows your top GitHub repositories (via `js/github.js`) or a "Coming Soon" message.
+
+---
+
+## 🗺️ Roadmap & Future Scope
+
+This template is actively evolving. Planned features include:
+
+- **Featured Projects**: A dedicated section to showcase specific projects with detailed case studies, images, and links.
+- **Dynamic Projects Section**: Fully configurable project cards in `config.json`.
+- **Blog Integration**: Simple markdown-based blogging or integration with external RSS feeds.
+- **Dark Mode Persistence**: Remembering theme preference across sessions.
+- **Improved PDF Generation**: More layout options for the resume PDF.
+
+---
+
 ---
 
 ## 📝 License
