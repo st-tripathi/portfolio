@@ -1,99 +1,113 @@
 {
-  "meta": {
-    "title": "Portfolio Template",
-    "description": "A modern, responsive portfolio template for software engineers",
-    "version": "1.0.0"
-  },
-  "personal": {
-    "name": "Your Name",
-    "title": "Staff Software Engineer",
-    "tagline": "Kubernetes • IAM • Distributed Systems",
-    "location": "City, Country",
-    "email": "your.email@example.com",
-    "github": "your-github-username",
-    "linkedin": "your-linkedin-username",
-    "website": ""
-  },
-  "about": {
-    "intro": "I'm a software engineer with <strong>X+ years</strong> of experience building distributed systems and cloud-native platforms.",
-    "focus": "My focus areas include cloud infrastructure, identity and access management, backend engineering, and production reliability."
-  },
-  "skills": [
-    {
-      "icon": "⚙️",
-      "name": "Platform Engineering",
-      "description": "Building internal platforms that enable developers to self-serve infrastructure and accelerate delivery.",
-      "tools": "Kubernetes, Docker, Helm, GitOps"
+    "meta": {
+        "title": "Portfolio - Shivam Tripathi",
+        "description": "Staff Software Engineer portfolio showcasing platform engineering and distributed systems expertise",
+        "version": "1.0.0"
     },
-    {
-      "icon": "☸️",
-      "name": "Container Orchestration",
-      "description": "Container orchestration for deploying, scaling, and managing containerized applications at enterprise scale.",
-      "tools": "Kubernetes, Docker, Helm"
+    "personal": {
+        "name": "Shivam Tripathi",
+        "title": "Staff Software Engineer",
+        "tagline": "Kubernetes • IAM • Distributed Systems",
+        "location": "India",
+        "email": "shivamtripathi444@gmail.com",
+        "github": "st-tripathi",
+        "linkedin": "stshivam",
+        "website": ""
     },
-    {
-      "icon": "🔐",
-      "name": "Identity & Access Management",
-      "description": "Identity and Access Management - ensuring the right users have the right access to the right resources at the right time.",
-      "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault"
+    "about": {
+        "intro": "Staff-level Platform and Backend Engineer with <strong>11.5+ years</strong> of experience across distributed systems, cloud-native platforms, and security-critical infrastructure.",
+        "focus": "Currently part of a central Platform / Blueprint team enabling multiple product teams through Kubernetes-based, inner-source platform components. Strong background in identity and access management, backend engineering, and production reliability."
     },
-    {
-      "icon": "🌐",
-      "name": "Distributed Systems",
-      "description": "Designing systems that operate across multiple machines, handling failures gracefully and scaling horizontally.",
-      "tools": "Event-Driven Architecture, DDD, Microservices"
+    "skills": [
+        {
+            "icon": "⚙️",
+            "name": "Platform Engineering",
+            "description": "Building internal platforms that enable developers to self-serve infrastructure and accelerate delivery.",
+            "tools": "Kubernetes, Docker, Helm, GitOps"
+        },
+        {
+            "icon": "☸️",
+            "name": "Container Orchestration",
+            "description": "Container orchestration for deploying, scaling, and managing containerized applications at enterprise scale.",
+            "tools": "Kubernetes, Docker, Helm"
+        },
+        {
+            "icon": "🔐",
+            "name": "Identity & Access Management",
+            "description": "Identity and Access Management - ensuring the right users have the right access to the right resources at the right time.",
+            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault"
+        },
+        {
+            "icon": "🌐",
+            "name": "Distributed Systems",
+            "description": "Designing systems that operate across multiple machines, handling failures gracefully and scaling horizontally.",
+            "tools": "Event-Driven Architecture, DDD, Microservices"
+        },
+        {
+            "icon": "☁️",
+            "name": "Cloud Platforms",
+            "description": "Building and deploying applications on cloud platforms with managed services for compute, storage, and messaging.",
+            "tools": "AWS, Azure (Functions, Service Bus)"
+        },
+        {
+            "icon": "🔧",
+            "name": "API Gateway",
+            "description": "API Gateway for traffic management, rate limiting, and security at the edge of your services.",
+            "tools": "Kong Gateway"
+        }
+    ],
+    "experience": [
+        {
+            "company": "Thales",
+            "role": "Senior Technical Lead",
+            "period": "May 2024 – Present",
+            "description": "Global leader in aerospace, defence, digital identity and security",
+            "highlights": [
+                "Architect inner-source platform serving 8+ product teams, reducing infrastructure onboarding from weeks to hours",
+                "Design security-hardened container base images adopted across business lines",
+                "Own Helm chart ecosystem for Keycloak, Kong Gateway, and HashiCorp Vault",
+                "Lead platform standardization establishing deployment blueprints"
+            ]
+        },
+        {
+            "company": "VAKT Global Ltd",
+            "role": "Senior Software Engineer",
+            "period": "Jul 2022 – Apr 2024",
+            "description": "Blockchain-based commodity trading platform",
+            "highlights": [
+                "Redesigned trade contract matching engine, accelerating settlement cycles from T+5 to T+2",
+                "Architected real-time discrepancy resolution replacing email-based workflows",
+                "Led event-driven architecture migration, deprecating legacy batch jobs"
+            ]
+        },
+        {
+            "company": "ThoughtWorks",
+            "role": "Senior Consultant / Tech Lead",
+            "period": "Nov 2017 – Jul 2022",
+            "description": "Global software consultancy and one of the Big Three",
+            "highlights": [
+                "Architected Kubernetes migration for Big Three consultancy (5M+ monthly visitors), achieving 99.99% uptime",
+                "Designed enterprise OAuth2/OIDC authentication using Keycloak with 99.9% availability",
+                "Led event-driven architecture adoption using Azure Service Bus and Functions",
+                "Mentored 10+ engineers across client engagements"
+            ]
+        }
+    ],
+    "social": {
+        "github": {
+            "enabled": false,
+            "showRepos": true,
+            "maxRepos": 6
+        }
     },
-    {
-      "icon": "☁️",
-      "name": "Cloud Platforms",
-      "description": "Building and deploying applications on cloud platforms with managed services for compute, storage, and messaging.",
-      "tools": "AWS, Azure (Functions, Service Bus)"
+    "blog": {
+        "enabled": true,
+        "subtitle": "Thoughts on platform engineering, cloud-native, and more"
     },
-    {
-      "icon": "🔧",
-      "name": "API Gateway",
-      "description": "API Gateway for traffic management, rate limiting, and security at the edge of your services.",
-      "tools": "Kong Gateway"
+    "contact": {
+        "intro": "Interested in discussing platform engineering, cloud-native architecture, or potential collaborations? I'd love to hear from you."
+    },
+    "footer": {
+        "copyright": "© 2026 Shivam Tripathi. Built with ❤️ and vanilla web technologies."
     }
-  ],
-  "experience": [
-    {
-      "company": "Company Name",
-      "role": "Senior Technical Lead",
-      "period": "May 2024 – Present",
-      "description": "Brief company description",
-      "highlights": [
-        "Key achievement or responsibility #1",
-        "Key achievement or responsibility #2",
-        "Key achievement or responsibility #3"
-      ]
-    },
-    {
-      "company": "Previous Company",
-      "role": "Technical Lead",
-      "period": "Jan 2022 – Apr 2024",
-      "description": "Brief company description",
-      "highlights": [
-        "Key achievement #1",
-        "Key achievement #2"
-      ]
-    }
-  ],
-  "social": {
-    "github": {
-      "enabled": false,
-      "showRepos": true,
-      "maxRepos": 6
-    }
-  },
-  "blog": {
-    "enabled": true,
-    "subtitle": "Thoughts on software engineering, cloud-native, and more"
-  },
-  "contact": {
-    "intro": "Interested in discussing software architecture, cloud-native development, or just want to say hello? Feel free to reach out!"
-  },
-  "footer": {
-    "copyright": "© 2026 Your Name. Built with ❤️"
-  }
 }
