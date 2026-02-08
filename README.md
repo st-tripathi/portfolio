@@ -1,76 +1,87 @@
-# Portfolio & Resume - Shivam Tripathi
+# 🎨 Developer Portfolio Template
 
-A modern, responsive portfolio website and resume generator for a Staff Software Engineer. Built with a "Jamstack" architecture, focusing on performance, cleanliness, and maintainability.
+A modern, responsive portfolio template for software engineers. **Zero frameworks, pure web technologies.**
 
-## 🚀 Live Demo
-[View Portfolio](https://st-tripathi.github.io/portfolio/) (Replace with your actual URL once enabled)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-## 🛠️ Architecture
+## ✨ Features
 
-This project follows a **Static-First** approach:
+- 🎯 **Config-driven** – Edit one JSON file, get a complete portfolio
+- 🌙 **Dark/Light mode** – Automatic theme switching with system preference
+- 📱 **Fully responsive** – Mobile-first design
+- ⚡ **Fast** – No frameworks, no build step, instant load
+- 🐳 **Docker-ready** – Local dev environment included
+- 📄 **Resume included** – HTML template + PDF generator
 
-*   **Frontend**: Vanilla HTML5, CSS3 (Variables + Flexbox/Grid), ES6 JavaScript. No heavy frameworks.
-*   **Resume Generation**: HTML/CSS template -> PDF conversion using **Puppeteer** (Headless Chrome).
-*   **Hosting**: Designed for **GitHub Pages** (Static) or **Netlify**.
-*   **Development**: Containerized using **Docker** for consistent environments.
-
-## 📂 Project Structure
+## 🚀 Quick Start
 
 ```bash
-.
-├── docs/               # Public web root (GitHub Pages source)
-│   ├── assets/         # Images, fonts, and the generated Resume PDF
-│   ├── css/            # Modular CSS (layout, components, themes)
-│   ├── js/             # Modular JS (theme, nav, github api, skills)
-│   └── index.html      # Main entry point
-├── templates/          # HTML Templates for Resume Generation
-├── Dockerfile.dev      # Dev server configuration
-└── docker-compose.yml  # Local development orchestration
+# 1. Fork this repo on GitHub
+# 2. Clone your fork
+git clone https://github.com/YOUR_USERNAME/portfolio.git
+cd portfolio
+
+# 3. Edit config.json with your info
+# 4. Run locally
+docker-compose up
+# Visit http://localhost:8080
+
+# 5. Deploy to GitHub Pages
+# Settings → Pages → Source: main / /docs
 ```
 
-## ⚡ Quick Start (Local Development)
+## 📁 Structure
 
-You don't need Node.js installed locally. Just **Docker**.
+```
+├── docs/                # Website root
+│   ├── config.json      # ← Your personal data
+│   ├── index.html
+│   ├── assets/resume.pdf
+│   ├── css/
+│   └── js/
+├── examples/            # Real-world config example
+├── templates/           # Resume HTML template
+└── CUSTOMIZATION.md     # Detailed guide
+```
 
-1.  **Clone the repo**
-    ```bash
-    git clone https://github.com/st-tripathi/portfolio.git
-    cd portfolio
-    ```
+## 🔧 Customization
 
-2.  **Start the server**
-    ```bash
-    docker-compose up
-    ```
+See **[CUSTOMIZATION.md](./CUSTOMIZATION.md)** for the complete guide.
 
-3.  **View it**
-    Open `http://localhost:8080`
+### Quick Config Example
 
-## 📄 Generating the Resume PDF
+```json
+{
+  "personal": {
+    "name": "Jane Doe",
+    "title": "Senior Software Engineer",
+    "tagline": "React • Node.js • AWS",
+    "email": "jane@example.com",
+    "github": "janedoe",
+    "linkedin": "jane-doe"
+  },
+  "skills": [...],
+  "experience": [...]
+}
+```
 
-The resume is generated programmatically from the HTML template to ensure pixel-perfect rendering.
+## 🎨 Theming
 
-1.  **Edit Content**: Update `templates/resume_template.html`
-2.  **Generate PDF**:
-    ```bash
-    # Runs Puppeteer in a container to capture the HTML as PDF
-    docker run --rm -v "$(pwd)":/work ghcr.io/puppeteer/puppeteer:latest node -e "
-    const puppeteer = require('puppeteer');
-    (async () => {
-      const browser = await puppeteer.launch({args: ['--no-sandbox']});
-      const page = await browser.newPage();
-      await page.goto('file:///work/templates/resume_template.html', {waitUntil: 'networkidle0'});
-      await page.pdf({path: '/work/docs/assets/resume.pdf', format: 'A4', printBackground: true});
-      await browser.close();
-    })();"
-    ```
+Edit CSS variables in `docs/css/themes.css`:
 
-## 🔒 Security & Privacy
-
-*   **No Trackers**: Zero analytics or tracking cookies.
-*   **Static Content**: No database, no backend to hack.
-*   **Sanitized**: No API keys or credentials stored in the repo.
+```css
+:root {
+  --primary: #6366f1;  /* Change accent color */
+}
+```
 
 ## 📄 License
 
-MIT © Shivam Tripathi
+MIT – Use it, modify it, ship it.
+
+---
+
+**Made with ❤️ by developers, for developers.**
