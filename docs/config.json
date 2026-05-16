@@ -1,13 +1,13 @@
 {
     "meta": {
         "title": "Portfolio - Shivam Tripathi",
-        "description": "Staff Software Engineer portfolio showcasing platform engineering and distributed systems expertise",
+        "description": "Staff Software Engineer portfolio showcasing identity platform engineering and distributed systems expertise",
         "version": "1.0.0"
     },
     "personal": {
         "name": "Shivam Tripathi",
         "title": "Staff Software Engineer",
-        "tagline": "Kubernetes • IAM • Distributed Systems",
+        "tagline": "Identity & Access Management • Distributed Systems • Platform Engineering",
         "location": "Noida, India",
         "email": "shivamtripathi444@gmail.com",
         "github": "st-tripathi",
@@ -15,8 +15,8 @@
         "website": ""
     },
     "about": {
-        "intro": "Software architect with <strong>11+ years</strong> building distributed systems, identity infrastructure, and cloud-native platforms.",
-        "focus": "Currently delivering Kubernetes-based developer platforms at enterprise scale, enabling 8+ product teams through inner-source platform components."
+        "intro": "Software engineer with <strong>11+ years</strong> building distributed systems and identity infrastructure.",
+        "focus": "At Thales, owns the Blueprint IAM platform — Keycloak, Kong API Gateway, and HashiCorp Vault as reusable components adopted across 5 global business units and 20+ product teams. Building an OAuth2 authorization plugin for the Model Context Protocol (MCP) to govern AI-agent access."
     },
     "skills": [
         {
@@ -33,9 +33,9 @@
         },
         {
             "icon": "🔐",
-            "name": "Identity & Security",
-            "description": "Enterprise identity infrastructure and zero-trust security patterns.",
-            "tools": "Keycloak, OAuth2/OIDC, HashiCorp Vault"
+            "name": "Identity & Access Management",
+            "description": "Enterprise IAM platform engineering — SPIs, plugins, and access control infrastructure.",
+            "tools": "Keycloak, OAuth2/OIDC, SAML, WebAuthn, HashiCorp Vault, Kong API Gateway, MCP"
         },
         {
             "icon": "🌐",
@@ -61,21 +61,22 @@
             "company": "Thales",
             "role": "Senior Technical Lead",
             "period": "May 2024 – Present",
-            "description": "Global leader in aerospace, defence, digital identity and security",
+            "description": "Global leader in digital identity and security",
             "highlights": [
-                "Architect inner-source platform serving 8+ product teams",
-                "Leverage GenAI tools for accelerated development workflows",
-                "Own Helm chart ecosystem for Keycloak, Kong, and Vault"
+                "Own Blueprint IAM platform adopted across 5 global business units and 20+ product teams",
+                "Write Keycloak SPIs in Java and Kong plugins in Lua; building MCP OAuth2 plugin to govern AI-agent access",
+                "Own security-hardened OCI images and Helm charts; set IAM integration standards org-wide"
             ]
         },
         {
             "company": "VAKT Global Ltd",
             "role": "Senior Software Engineer",
             "period": "Jul 2022 – Apr 2024",
-            "description": "Blockchain leader in post-trade processing for commodities trading",
+            "description": "Blockchain platform for post-trade processing in global oil & gas commodity markets",
             "highlights": [
-                "Redesigned trade matching engine, accelerating settlements from T+5 to T+2",
-                "Architected real-time discrepancy resolution system"
+                "Redesigned core contract matching algorithm, improving match accuracy and reducing settlement duration",
+                "Built real-time in-platform communication replacing email-based discrepancy workflows",
+                "Introduced compliance-grade audit trails for full trader action history"
             ]
         },
         {
@@ -84,9 +85,9 @@
             "period": "Nov 2017 – Jul 2022",
             "description": "Global software consultancy",
             "highlights": [
-                "Architected Kubernetes migration for one of the Big Three consultancies (5M+ visitors)",
-                "Designed enterprise OAuth2/OIDC authentication with Keycloak",
-                "Mentored 10+ engineers across client engagements"
+                "Led identity modernisation for a global management consultancy — replacing legacy auth with Keycloak as OIDC-certified provider",
+                "Migrated user registration to Azure Kubernetes with zero-downtime cutover",
+                "Replaced legacy batch jobs with Azure Service Bus and Functions, eliminating cron failure patterns"
             ]
         }
     ],
