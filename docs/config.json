@@ -86,7 +86,7 @@
             "description": "Global software consultancy",
             "highlights": [
                 "Led identity modernisation for a global management consultancy — replacing legacy auth with Keycloak as OIDC-certified provider",
-                "Migrated user registration to Azure Kubernetes with zero-downtime cutover",
+                "Migrated user registration to Azure Kubernetes — custom scripts for bulk data migration, delta applied post-cutover, no full-downtime window",
                 "Replaced legacy batch jobs with Azure Service Bus and Functions, eliminating cron failure patterns"
             ]
         }
