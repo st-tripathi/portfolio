@@ -190,6 +190,56 @@
     }
 
     /**
+     * Render projects from config
+     */
+    function renderProjects(config) {
+        const { projects } = config;
+        const container = document.getElementById('projects-list');
+        if (!container || !projects?.items?.length) return;
+
+        container.innerHTML = '';
+
+        projects.items.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'github-card';
+
+            const h4 = document.createElement('h4');
+            h4.textContent = project.name;
+
+            const desc = document.createElement('p');
+            desc.textContent = project.description;
+
+            const meta = document.createElement('div');
+            meta.className = 'github-card-meta';
+
+            if (project.tech?.length) {
+                const techSpan = document.createElement('span');
+                techSpan.textContent = project.tech.join(' · ');
+                meta.appendChild(techSpan);
+            }
+
+            if (project.url) {
+                const link = document.createElement('a');
+                link.href = project.url;
+                link.target = '_blank';
+                link.rel = 'noopener';
+                link.textContent = 'View on GitHub →';
+                link.style.cssText = 'margin-top: 0.75rem; display: inline-block; color: var(--accent-primary); font-size: 0.9rem;';
+                card.appendChild(h4);
+                card.appendChild(desc);
+                card.appendChild(meta);
+                card.appendChild(link);
+            } else {
+                card.appendChild(h4);
+                card.appendChild(desc);
+                card.appendChild(meta);
+            }
+
+            container.appendChild(card);
+        });
+    }
+
+    /**
      * Render blog section
      */
     function renderBlog(config) {
@@ -242,6 +292,7 @@
         renderAbout(config);
         renderSkills(config);
         renderExperience(config);
+        renderProjects(config);
         renderBlog(config);
         renderContact(config);
         renderFooter(config);
