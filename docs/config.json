@@ -7,7 +7,7 @@
     "personal": {
         "name": "Shivam Tripathi",
         "title": "Staff Software Engineer",
-        "tagline": "Identity & Access Management • Distributed Systems • Platform Engineering",
+        "tagline": "Identity & Access Management • Distributed Systems • Technical Leadership",
         "location": "Noida, India",
         "email": "shivamtripathi444@gmail.com",
         "github": "st-tripathi",
@@ -16,7 +16,7 @@
     },
     "about": {
         "intro": "Software engineer with <strong>11+ years</strong> building distributed systems and identity infrastructure.",
-        "focus": "At Thales, owns the Blueprint IAM platform — Keycloak, Kong API Gateway, and HashiCorp Vault as reusable components adopted across 5 global business units and 20+ product teams. Building an OAuth2 authorization plugin for the Model Context Protocol (MCP) to govern AI-agent access."
+        "focus": "At Thales, owns the Blueprint IAM platform — used by 20+ product teams across 5 global business units, each running isolated deployments in Kubernetes. Builds authentication and authorization capabilities including OAuth2/OIDC, SAML, passkeys/WebAuthn, and access-control infrastructure. Designing OAuth2-based authorization controls for AI agents using Model Context Protocol (MCP)."
     },
     "skills": [
         {
@@ -63,9 +63,9 @@
             "period": "May 2024 – Present",
             "description": "Global leader in digital identity and security",
             "highlights": [
-                "Own Blueprint IAM platform adopted across 5 global business units and 20+ product teams",
-                "Write Keycloak SPIs in Java and Kong plugins in Lua; building MCP OAuth2 plugin to govern AI-agent access",
-                "Own security-hardened OCI images and Helm charts; set IAM integration standards org-wide"
+                "Own the IAM roadmap — decide what gets built and to what security standard — and set integration standards that 20+ product teams follow",
+                "Own Blueprint IAM platform used by 20+ product teams across 5 global business units, each running isolated deployments in Kubernetes",
+                "Develop custom Keycloak plugins in Java and Kong plugins in Lua; designing OAuth2 authorization controls for AI agents via MCP"
             ]
         },
         {
@@ -74,9 +74,9 @@
             "period": "Jul 2022 – Apr 2024",
             "description": "Blockchain platform for post-trade processing in global oil & gas commodity markets",
             "highlights": [
-                "Redesigned core contract matching algorithm, improving match accuracy and reducing settlement duration",
-                "Built real-time in-platform communication replacing email-based discrepancy workflows",
-                "Introduced compliance-grade audit trails for full trader action history"
+                "Built backend services for distributed post-trade workflows using Java, Spring Boot, and PostgreSQL",
+                "Built real-time discrepancy resolution workflows replacing email-based coordination, reducing settlement friction",
+                "Introduced compliance-grade audit trails for trader activity and dispute history"
             ]
         },
         {
@@ -85,7 +85,7 @@
             "period": "Nov 2017 – Jul 2022",
             "description": "Global software consultancy",
             "highlights": [
-                "Led identity modernisation for a global management consultancy — replacing legacy auth with Keycloak as OIDC-certified provider",
+                "Replaced the legacy authentication system on a global management consultancy's platform with Keycloak as an OIDC identity provider — customer-facing login and session management across regions",
                 "Migrated user registration to Azure Kubernetes — custom scripts for bulk data migration, delta applied post-cutover, no full-downtime window",
                 "Replaced legacy batch jobs with Azure Service Bus and Functions, eliminating cron failure patterns"
             ]
@@ -108,7 +108,7 @@
         "subtitle": "Thoughts on platform engineering, cloud-native, and more"
     },
     "contact": {
-        "intro": "Interested in discussing platform engineering or cloud-native architecture? Let's connect."
+        "intro": "Interested in discussing identity platform engineering, distributed systems, or technical leadership? Let's connect."
     },
     "footer": {
         "copyright": "© 2026 Shivam Tripathi"
