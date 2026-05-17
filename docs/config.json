@@ -101,7 +101,14 @@
     "projects": {
         "enabled": true,
         "subtitle": "Featured work and open-source contributions",
-        "items": []
+        "items": [
+            {
+                "name": "oidc-mock-server",
+                "description": "A lightweight, configurable OAuth2/OIDC mock server for local development and testing. No cloud dependencies, no complex setup — just run and authenticate.",
+                "tech": ["Java", "OAuth2", "OIDC"],
+                "url": "https://github.com/st-tripathi/oidc-mock-server"
+            }
+        ]
     },
     "blog": {
         "enabled": true,
